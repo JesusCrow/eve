@@ -1,22 +1,28 @@
 {
-  "name": "eventstop",
-  "version": "2.1.0",
-  "description": "A minimal event library for Node.js and browser.",
+  "name": "eve",
+  "version": "3.0.0",
+  "description": "A minimal event library as a ES module.",
+  "module": "src/index.mjs",
   "repository": {
-    "url": "egoist/eventstop",
+    "url": "JesusCrow/eve",
     "type": "git"
   },
-  "main": "dist/eventstop.js",
-  "files": [
-    "dist"
-  ],
   "scripts": {
     "test": "NODE_ENV=test ava && npm run lint && npm run build",
     "lint": "xo src/*.js",
     "build": "bili --format umd --compress --module-name eventstop",
     "prepublish": "npm t"
   },
-  "author": "egoist <0x142857@gmail.com>",
+  "contributors": [
+    {
+      "name": "egoist",
+      "email": "0x142857@gmail.com"
+    },
+    {
+      "name": "JesusCrow",
+      "email": "paul.varna@gmail.com"
+    }
+  ],
   "license": "MIT",
   "devDependencies": {
     "ava": "^0.17.0",
