@@ -1,6 +1,6 @@
-export default function eventstop() {
-  const events = {}
+const events = {}
 
+export default function eventstop() {
   function select(event) {
     return events[event] || (events[event] = [])
   }

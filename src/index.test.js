@@ -1,23 +1,20 @@
-import test from 'ava'
-import eventstop from './src'
+import {on, once, emit} from './'
 
-test('main', t => {
-  const {on, emit} = eventstop()
+test('on', t => {
   let yourName
-  const off = on('hola', name => {
+  const e = on('hola', name => {
     yourName = name
   })
   emit('hola', 'taki')
   t.is(yourName, 'taki')
-  off()
+  e()
   emit('hola', 'mitsuha')
   t.is(yourName, 'taki')
 })
 
 test('once', t => {
-  const {once, emit} = eventstop()
   let yourName
-  const off = once('hola', name => {
+  once('hola', name => {
     yourName = name
   })
   emit('hola', 'taki')
@@ -27,7 +24,6 @@ test('once', t => {
 })
 
 test('wildcard', t => {
-  const {on, emit} = eventstop()
   let yourName
   on('*', (type, name) => {
     t.is(type, 'foo')

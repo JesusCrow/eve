@@ -8,8 +8,8 @@
     "type": "git"
   },
   "scripts": {
-    "test": "NODE_ENV=test ava && npm run lint && npm run build",
-    "lint": "xo src/*.js",
+    "test": "NODE_ENV=test tyu",
+    "lint": "xo src/*.mjs",
     "build": "bili --format umd --compress --module-name eventstop",
     "prepublish": "npm t"
   },
@@ -25,23 +25,20 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "ava": "^0.17.0",
-    "babel-preset-stage-2": "^6.18.0",
-    "babel-register": "^6.18.0",
     "bili": "^0.10.0",
+    "tyu": "^1.0.6",
     "xo": "^0.17.1"
   },
-  "ava": {
-    "require": [
-      "babel-register"
-    ]
-  },
   "xo": {
+    "extensions": [
+      "mjs"
+    ],
     "space": 2,
     "semicolon": false,
     "esnext": true,
     "rules": {
       "no-return-assign": 0
-    }
+    },
+    "env": "jest"
   }
 }
